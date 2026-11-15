@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10121b">
+    <title>Rocker Launch | Space Mission Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #10121b;
+            --muted: #9da3b7;
+            --accent: #c0aaff;
+            --line: rgba(255,255,255,.09);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: #f7f6ff;
+            background: radial-gradient(ellipse at 50% 0%, #292344 0, var(--bg) 58%);
+            font: 16px/1.5 "Arimo", sans-serif;
+        }
+        .page { width: min(100% - 40px, 1050px); margin: 0 auto; padding: 28px 0 50px; }
+        header { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; letter-spacing: .02em; }
+        .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: #171322; background: var(--accent); font-size: 20px; }
+        .header-link { color: #d7d4e5; text-decoration: none; padding: 9px 14px; border: 1px solid var(--line); border-radius: 12px; }
+        .header-link:hover { background: rgba(255,255,255,.07); }
+        main { padding: clamp(70px, 13vh, 130px) 0 40px; }
+        .hero { max-width: 760px; margin: 0 auto; text-align: center; }
+        .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .18em; font-size: .75rem; font-weight: 700; }
+        h1 { margin: 14px 0; font-size: clamp(2.7rem, 8vw, 5.2rem); line-height: 1.02; letter-spacing: -.06em; }
+        .hero p { max-width: 610px; margin: 0 auto; color: var(--muted); font-size: 1.08rem; }
+        .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+        .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 19px; border: 1px solid var(--line); border-radius: 13px; color: #f7f6ff; font-weight: 700; text-decoration: none; transition: transform .18s, filter .18s, background .18s; }
+        .button:hover { transform: translateY(-2px); }
+        .button-primary { border-color: transparent; color: #171322; background: var(--accent); }
+        .button-primary:hover { filter: brightness(1.08); }
+        .button-secondary:hover { background: rgba(255,255,255,.07); }
+        .mission-card { max-width: 800px; margin: 75px auto 0; padding: 26px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(145deg, rgba(33,36,53,.95), rgba(23,25,37,.95)); box-shadow: 0 18px 55px rgba(0,0,0,.2); }
+        .card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+        .number { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.06); font-weight: 700; }
+        .status { padding: 6px 10px; border-radius: 99px; color: #d5caff; background: rgba(167,139,250,.13); font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+        .mission-card h2 { margin: 20px 0 7px; font-size: 1.45rem; }
+        .mission-card p { margin: 0; color: var(--muted); }
+        footer { margin-top: 45px; text-align: center; color: #777d91; font-size: .83rem; }
+        @media (max-width: 600px) {
+            .page { width: min(100% - 28px, 480px); padding-top: 18px; }
+            main { padding-top: 75px; }
+            .mission-card { margin-top: 55px; padding: 22px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">✦</span>
+                <span>Rocker Launch</span>
+            </div>
+            <a class="header-link" href="pages/the_levels.html">Choose a level</a>
+        </header>
+
+        <main>
+            <section class="hero">
+                <span class="eyebrow">Mission control is waiting</span>
+                <h1>Launch your next space mission</h1>
+                <p>Design a spacecraft, manage your resources, and test your decisions on a journey beyond Earth.</p>
+                <div class="actions">
+                    <a class="button button-primary" href="pages/the_levels.html">Explore the levels <span aria-hidden="true">&nbsp;→</span></a>
+                    <a class="button button-secondary" href="pages/level_one.html">Start level one</a>
+                </div>
+            </section>
+
+            <section class="mission-card" aria-labelledby="mission-title">
+                <div class="card-top">
+                    <span class="number">01</span>
+                    <span class="status">Mission available</span>
+                </div>
+                <h2 id="mission-title">Your decisions shape the mission</h2>
+                <p>Choose a destination, plan your spacecraft, and launch when your design is ready.</p>
+            </section>
+            <section class="mission-card" aria-labelledby="level-two-title">
+    <div class="card-top">
+        <span class="number">02</span>
+        <span class="status">Mission available</span>
+    </div>
+    <h2 id="level-two-title">Mars Sample Mission</h2>
+    <p>Plan a Mars rover mission to search for signs of life and collect samples.</p>
+</section>
+        </main>
+
+        <footer>Every great mission starts with a plan.</footer>
+    </div>
+</body>
+</html>

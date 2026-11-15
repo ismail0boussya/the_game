@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#10121b">
+	<title>Choose a Level</title>
+	<style>
+		:root {
+			color-scheme: dark;
+			--bg: #10121b;
+			--panel: #191c29;
+			--muted: #9da3b7;
+			--accent: #a78bfa;
+			--line: rgba(255,255,255,.09);
+		}
+		* { box-sizing: border-box; }
+		body {
+			margin: 0;
+			min-height: 100vh;
+			color: #f7f6ff;
+			background: radial-gradient(ellipse at 50% 0%, #292344 0, var(--bg) 55%);
+			font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+		}
+		.page { width: min(100% - 40px, 1050px); margin: 0 auto; padding: 28px 0 64px; }
+		header { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+		.brand { display: flex; align-items: center; gap: 11px; font-weight: 750; letter-spacing: .02em; }
+		.brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: #171322; background: var(--accent); font-size: 20px; }
+		.back { color: #d7d4e5; text-decoration: none; padding: 9px 14px; border: 1px solid var(--line); border-radius: 12px; transition: background .2s; }
+		.back:hover { background: rgba(255,255,255,.07); }
+		main { padding-top: clamp(58px, 10vh, 105px); }
+		.intro { max-width: 650px; margin: 0 auto 42px; text-align: center; }
+		.eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .18em; font-size: .75rem; font-weight: 800; }
+		h1 { margin: 10px 0 12px; font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -.055em; }
+		.intro p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+		.progress { display: flex; align-items: center; gap: 12px; width: min(100%, 340px); margin: 25px auto 0; color: #c9c5d8; font-size: .84rem; }
+		.progress-track { height: 7px; flex: 1; overflow: hidden; border-radius: 99px; background: #303243; }
+		.progress-fill { width: 50%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #8b75f5, #c4a8ff); }
+		.levels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 800px; margin: 0 auto; }
+		.card { position: relative; overflow: hidden; min-height: 310px; padding: 27px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(145deg, rgba(33,36,53,.98), rgba(23,25,37,.98)); box-shadow: 0 18px 55px rgba(0,0,0,.2); }
+		.card::after { position: absolute; top: -50px; right: -40px; width: 170px; height: 170px; border-radius: 50%; background: var(--glow); content: ""; filter: blur(2px); opacity: .14; pointer-events: none; }
+		.card-one { --glow: #9b83ff; }
+		.card-two { --glow: #73a4ff; }
+		.card-top { display: flex; justify-content: space-between; align-items: center; }
+		.number { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(255,255,255,.06); font-weight: 800; }
+		.status { padding: 6px 10px; border-radius: 99px; color: #d5caff; background: rgba(167,139,250,.13); font-size: .72rem; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
+		.locked .status { color: #b6b9c8; background: rgba(255,255,255,.08); }
+		.icon { display: block; margin-top: 24px; font-size: 2rem; }
+		h2 { margin: 4px 0 7px; font-size: 1.55rem; letter-spacing: -.025em; }
+		.description { min-height: 48px; margin: 0; color: var(--muted); font-size: .93rem; }
+		.card-action { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; margin-top: 24px; padding: 0 17px; border: 0; border-radius: 13px; color: #171322; background: #c0aaff; font: inherit; font-weight: 800; text-decoration: none; transition: transform .18s, filter .18s; }
+		.card-action:hover { transform: translateY(-2px); filter: brightness(1.08); }
+		.locked .card-action { color: #a5a8b8; background: #303243; cursor: not-allowed; }
+		footer { margin-top: 30px; text-align: center; color: #777d91; font-size: .83rem; }
+		@media (max-width: 620px) {
+			.page { width: min(100% - 28px, 480px); padding-top: 18px; }
+			main { padding-top: 58px; }
+			.levels { grid-template-columns: 1fr; gap: 15px; }
+			.card { min-height: 285px; padding: 23px; }
+			.intro { margin-bottom: 30px; }
+		}
+		@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+	</style>
+</head>
+<body>
+	<div class="page">
+		<header>
+			<div class="brand"><span class="brand-mark" aria-hidden="true">✦</span><span>The Levels</span></div>
+			<a class="back" href="../index.html">← Back</a>
+		</header>
+
+		<main>
+			<section class="intro" aria-labelledby="page-title">
+				<span class="eyebrow">Your adventure starts here</span>
+				<h1 id="page-title">Choose a level</h1>
+				<p>Take it one step at a time. Complete the first challenge to unlock what comes next.</p>
+				<div class="progress" aria-label="1 of 2 levels available">
+					<span>Progress</span><div class="progress-track"><div class="progress-fill"></div></div><strong>1 / 2</strong>
+				</div>
+			</section>
+
+			<section class="levels" aria-label="Available levels">
+				<article class="card card-one">
+					<div class="card-top"><span class="number">01</span><span class="status">Available</span></div>
+					<span class="icon" aria-hidden="true">🌱</span>
+					<h2>Level One</h2>
+					<p class="description">A good place to begin. Learn the basics and take on your first challenge.</p>
+					<a class="card-action" href="level_one.html">Play level one <span aria-hidden="true">→</span></a>
+				</article>
+
+				<article class="card card-two locked" aria-label="Level Two, locked">
+					<div class="card-top"><span class="number">02</span><span class="status">🔒 Locked</span></div>
+					<span class="icon" aria-hidden="true">✨</span>
+					<h2>Level Two</h2>
+					<p class="description">A new challenge is waiting. Finish level one to unlock this level.</p>
+					<button class="card-action" type="button" disabled aria-describedby="unlock-hint">Complete level one first <span aria-hidden="true">🔒</span></button>
+					<span id="unlock-hint" hidden>Level two is locked until level one is complete.</span>
+				</article>
+			</section>
+			<footer>Keep going — every challenge brings you closer.</footer>
+		</main>
+	</div>
+</body>
+</html>

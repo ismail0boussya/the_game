@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rocker Launch | Mission Control</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body class="mission_page">
+    <main class="mission_shell">
+        <header class="mission_header">
+            <a class="back_link" href="../index.html">← Home</a>
+            <p class="eyebrow">ROCKER LAUNCH · MISSION CONTROL</p>
+            <h1>Design your space mission</h1>
+            <p class="mission_brief">Designing a space mission requires careful consideration of competing demands, including mission objectives, spacecraft design, scientific instruments, launch vehicles, budgets, power, mass, communications, and orbital constraints. For students who rarely get to experiment with an entire mission from concept to operation, these trade-offs often remain abstract. Your challenge is to create an interactive game that allows participants to design, manage, and simulate a complete space mission while making engineering decisions, managing limited resources, and evaluating how each choice shapes the success of their mission.</p>
+            <a class="hard_mode_link" href="the_levels2.html">Take on the hardest mission: Mars biosignature rover →</a>
+        </header>
+
+        <form id="missionForm" class="mission_grid">
+            <section class="design_panel" aria-labelledby="planTitle">
+                <div class="section_heading">
+                    <span class="step_number">01</span>
+                    <div>
+                        <h2 id="planTitle">Plan your launch</h2>
+                        <p>Every choice changes the mission's cost, mass, or chance of success.</p>
+                    </div>
+                </div>
+
+                <label class="field_label" for="destination">Destination and mission objective</label>
+                <select id="destination" name="destination">
+                    <option value="leo">Low Earth orbit — climate-monitoring satellite or station supplies</option>
+                    <option value="moon">The Moon — land a probe near the south pole to search for water ice</option>
+                    <option value="mars">Mars — send a rover to study the atmosphere and signs of ancient life</option>
+                </select>
+                <p id="destinationBrief" class="field_hint" aria-live="polite"></p>
+
+                <label class="field_label" for="budget">Mission budget <span>(USD millions)</span></label>
+                <div class="budget_input">
+                    <span>$</span>
+                    <input id="budget" name="budget" type="number" min="100" max="1000" step="10" value="250" inputmode="numeric">
+                    <span>million</span>
+                </div>
+
+                <fieldset>
+                    <legend>Launch vehicle</legend>
+                    <div class="choice_cards">
+                        <label class="choice_card">
+                            <input type="radio" name="rocket" value="light" checked>
+                            <span class="choice_name">Light</span>
+                            <span class="choice_detail">Affordable · Earth orbit</span>
+                            <span class="choice_detail">Payload up to 1,000 kg</span>
+                        </label>
+                        <label class="choice_card">
+                            <input type="radio" name="rocket" value="medium">
+                            <span class="choice_name">Medium</span>
+                            <span class="choice_detail">Balanced · Moon capable</span>
+                            <span class="choice_detail">Payload up to 1,200 kg to Moon</span>
+                        </label>
+                        <label class="choice_card">
+                            <input type="radio" name="rocket" value="heavy">
+                            <span class="choice_name">Heavy</span>
+                            <span class="choice_detail">Powerful · Deep space</span>
+                            <span class="choice_detail">Payload up to 1,500 kg to Mars</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Scientific payload <span>(choose at least one)</span></legend>
+                    <div class="option_list">
+                        <label class="option_row">
+                            <input type="checkbox" name="payload" value="camera" checked>
+                            <span><strong>High-resolution camera</strong><small>Maps terrain and tracks climate · 120 kg · $35M</small></span>
+                        </label>
+                        <label class="option_row">
+                            <input type="checkbox" name="payload" value="spectrometer">
+                            <span><strong>Sensors and spectrometer</strong><small>Analyzes soil, ice, and atmosphere · 80 kg · $50M</small></span>
+                        </label>
+                        <label class="option_row">
+                            <input type="checkbox" name="payload" value="heatshield">
+                            <span><strong>Entry and landing heat shield</strong><small>Protects a probe during landing · 450 kg · $70M</small></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Power source</legend>
+                    <div class="choice_cards power_cards">
+                        <label class="choice_card">
+                            <input type="radio" name="power" value="solar" checked>
+                            <span class="choice_name">Solar panels</span>
+                            <span class="choice_detail">Lightweight · $20M</span>
+                            <span class="choice_detail">Best near Earth and the Moon</span>
+                        </label>
+                        <label class="choice_card">
+                            <input type="radio" name="power" value="rtg">
+                            <span class="choice_name">Nuclear RTG</span>
+                            <span class="choice_detail">Reliable in darkness · $90M</span>
+                            <span class="choice_detail">Heavier, but suited to Mars</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <label class="field_label fuel_label" for="fuel">Fuel load <output id="fuelValue" for="fuel">50%</output></label>
+                <input id="fuel" name="fuel" type="range" min="0" max="100" value="50">
+                <div class="range_ends"><span>Less fuel · lighter</span><span>More fuel · more range</span></div>
+            </section>
+
+            <aside class="mission_sidebar">
+                <section class="status_panel" aria-labelledby="statusTitle">
+                    <div class="section_heading">
+                        <span class="step_number">02</span>
+                        <div>
+                            <h2 id="statusTitle">Mission status</h2>
+                            <p>Live estimate from your design</p>
+                        </div>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric"><span>Estimated cost</span><strong id="costMetric">$0M</strong></div>
+                        <div class="metric"><span>Payload mass</span><strong id="payloadMetric">0 kg</strong></div>
+                        <div class="metric"><span>Fuel mass</span><strong id="fuelMetric">0 kg</strong></div>
+                        <div class="metric"><span>Total launch mass</span><strong id="massMetric">0 kg</strong></div>
+                    </div>
+                    <div id="missionChecks" class="mission_checks" aria-live="polite"></div>
+                    <div class="ai_suggestion" aria-live="polite">
+                        <span class="ai_tag">AI MISSION ADVISOR</span>
+                        <p id="aiSuggestion">Set your mission parameters to receive a design recommendation.</p>
+                    </div>
+                    <button class="launch_button" type="submit">Run mission simulation</button>
+                </section>
+
+                <section id="simulationResult" class="result_panel" aria-live="polite" hidden>
+                    <p class="eyebrow">FLIGHT REPORT</p>
+                    <h2 id="resultTitle"></h2>
+                    <p id="resultMessage"></p>
+                    <div class="score_line"><span>Mission score</span><strong id="scoreValue"></strong></div>
+                    <button id="redesignButton" class="secondary_button" type="button">Adjust mission design</button>
+                </section>
+                <p class="fine_print">All costs and performance figures are simplified for this learning simulation.</p>
+            </aside>
+        </form>
+    </main>
+    <script src="../main.js"></script>
+</body>
+</html>

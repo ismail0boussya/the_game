@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rocker Launch | The Mars Sample Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../hard-level.css">
+</head>
+<body class="mission_page hard_mission_page">
+    <main class="mission_shell hard_shell">
+        <header class="mission_header hard_header">
+            <a class="back_link" href="the_levels2.html">← Mission Control</a>
+            <p class="eyebrow">ROCKER LAUNCH · HARD MODE · ONE MISSION</p>
+            <h1>The Mars Sample Mission</h1>
+            <p class="mission_brief">One launch. One rover. One chance to find evidence of ancient life in Jezero Crater. Design a rover that can survive entry, land safely, drill and analyze samples, stay warm through dust storms, and send its discoveries back to Earth — without exceeding the launch mass or mission budget.</p>
+        </header>
+
+        <section class="mission_brief hard_brief" aria-labelledby="missionBriefTitle">
+            <h2 id="missionBriefTitle">Your single, complex objective</h2>
+            <p>Deliver a science rover to Jezero Crater and complete a two-year search for ancient microbial biosignatures. Your design must pass <strong>every</strong> engineering constraint before launch. The choices are connected: more instruments cost more and add mass; extra fuel improves arrival margin but also consumes payload capacity; solar power is lighter, but dust storms and winter darkness threaten the mission.</p>
+            <div class="objective_chips">
+                <span>DESTINATION · JEZERO CRATER, MARS</span>
+                <span>MISSION LIFE · 2 EARTH YEARS</span>
+                <span>SCIENCE · FIND ANCIENT BIOSIGNATURES</span>
+            </div>
+        </section>
+
+        <form id="hardMissionForm" class="mission_grid hard_grid">
+            <section class="design_panel hard_design" aria-labelledby="designTitle">
+                <div class="section_heading">
+                    <span class="step_number">01</span>
+                    <div><h2 id="designTitle">Build the mission</h2><p>Configure each system. Every red constraint must be resolved.</p></div>
+                </div>
+
+                <label class="field_label" for="hardBudget">Total mission budget <span>(USD millions)</span></label>
+                <div class="budget_input"><span>$</span><input id="hardBudget" name="budget" type="number" min="1800" max="2600" step="10" value="2400" inputmode="numeric"><span>million</span></div>
+                <p class="field_hint">The mission is capped at $2,600M. Launch vehicle, rover, science, landing, power, communications, fuel, and operations all count.</p>
+
+                <fieldset>
+                    <legend>Launch vehicle <span>· Mars requires a heavy-lift rocket</span></legend>
+                    <div class="choice_cards">
+                        <label class="choice_card"><input type="radio" name="rocket" value="medium"><span class="choice_name">Medium lift</span><span class="choice_detail">$180M · 1,800 kg Mars limit</span></label>
+                        <label class="choice_card"><input type="radio" name="rocket" value="heavy" checked><span class="choice_name">Heavy lift</span><span class="choice_detail">$620M · 3,750 kg Mars limit</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Science payload <span>· Required for the biosignature objective</span></legend>
+                    <div class="option_list">
+                        <label class="option_row"><input type="checkbox" name="payload" value="camera" checked><span><strong>Terrain and context camera</strong><small>Maps safe routes and records sample context · 80 kg · $45M</small></span></label>
+                        <label class="option_row"><input type="checkbox" name="payload" value="drill"><span><strong>Subsurface drill</strong><small>Reaches protected samples below the radiation-exposed surface · 180 kg · $90M</small></span></label>
+                        <label class="option_row"><input type="checkbox" name="payload" value="spectrometer"><span><strong>Organic-molecule spectrometer</strong><small>Identifies mineral and chemical signatures in samples · 140 kg · $110M</small></span></label>
+                        <label class="option_row"><input type="checkbox" name="payload" value="biosignature"><span><strong>Contamination-controlled life detector</strong><small>Tests for possible ancient microbial biosignatures · 160 kg · $145M</small></span></label>
+                        <label class="option_row"><input type="checkbox" name="payload" value="cache"><span><strong>Sealed sample cache</strong><small>Preserves drilled samples for future study · 110 kg · $85M</small></span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Power system <span>· Must sustain science through dust and darkness</span></legend>
+                    <div class="choice_cards power_cards">
+                        <label class="choice_card"><input type="radio" name="power" value="solar" checked><span class="choice_name">Solar array + battery</span><span class="choice_detail">120 kg · $65M · 70 power units</span></label>
+                        <label class="choice_card"><input type="radio" name="power" value="rtg"><span class="choice_name">Nuclear RTG</span><span class="choice_detail">260 kg · $220M · 150 power units</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Communications <span>· Earth is millions of kilometers away</span></legend>
+                    <div class="choice_cards power_cards">
+                        <label class="choice_card"><input type="radio" name="communications" value="direct" checked><span class="choice_name">Direct-to-Earth antenna</span><span class="choice_detail">60 kg · $60M · 4 contact hours/day</span></label>
+                        <label class="choice_card"><input type="radio" name="communications" value="relay"><span class="choice_name">Orbiter relay link</span><span class="choice_detail">120 kg · $150M · 8 contact hours/day</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Entry, descent, and landing <span>· Choose a system for a precision rover landing</span></legend>
+                    <div class="choice_cards power_cards">
+                        <label class="choice_card"><input type="radio" name="landing" value="basic" checked><span class="choice_name">Parachute + basic heat shield</span><span class="choice_detail">420 kg · $120M · limited landing accuracy</span></label>
+                        <label class="choice_card"><input type="radio" name="landing" value="skycrane"><span class="choice_name">Guided sky crane + heat shield</span><span class="choice_detail">700 kg · $210M · precision landing</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Thermal control <span>· Nights can drop below −100°C</span></legend>
+                    <div class="choice_cards power_cards">
+                        <label class="choice_card"><input type="radio" name="thermal" value="basic" checked><span class="choice_name">Basic insulation</span><span class="choice_detail">70 kg · $60M · short cold tolerance</span></label>
+                        <label class="choice_card"><input type="radio" name="thermal" value="rugged"><span class="choice_name">Rugged heaters + insulation</span><span class="choice_detail">140 kg · $135M · two-year survival</span></label>
+                    </div>
+                </fieldset>
+
+                <label class="field_label fuel_label" for="hardFuel">Interplanetary fuel reserve <output id="hardFuelValue" for="hardFuel">78%</output></label>
+                <input id="hardFuel" name="fuel" type="range" min="70" max="100" value="78">
+                <div class="range_ends"><span>Less fuel · lower cost and mass</span><span>More fuel · safer arrival margin</span></div>
+            </section>
+
+            <aside class="mission_sidebar hard_sidebar">
+                <section class="status_panel" aria-labelledby="hardStatusTitle">
+                    <div class="section_heading"><span class="step_number">02</span><div><h2 id="hardStatusTitle">Mission constraints</h2><p id="hardStatusSummary">Resolve every constraint to launch.</p></div></div>
+                    <div class="hard_metrics">
+                        <div class="metric"><span>Mission cost</span><strong id="hardCost">$0M</strong></div>
+                        <div class="metric"><span>Rover + systems</span><strong id="hardPayloadMass">0 kg</strong></div>
+                        <div class="metric"><span>Fuel reserve</span><strong id="hardFuelMass">0 kg</strong></div>
+                        <div class="metric"><span>Total launch mass</span><strong id="hardTotalMass">0 kg</strong></div>
+                        <div class="metric"><span>Power supply / demand</span><strong id="hardPower">0 / 0 units</strong></div>
+                        <div class="metric"><span>Earth contact</span><strong id="hardContact">0 h/day</strong></div>
+                    </div>
+                    <div id="hardChecks" class="mission_checks" aria-live="polite"></div>
+                    <div class="ai_suggestion hard_advisor" aria-live="polite"><span class="ai_tag">MISSION ADVISOR</span><p id="hardAdvice">Checking the mission design…</p></div>
+                    <button class="launch_button hard_launch" type="submit">Simulate the Mars mission</button>
+                </section>
+                <section id="hardResult" class="result_panel hard_result" aria-live="polite" hidden>
+                    <p class="eyebrow">MISSION SIMULATION</p><h2 id="hardResultTitle"></h2><p id="hardResultMessage"></p>
+                    <div class="hard_timeline" id="hardTimeline"></div>
+                    <div class="score_line"><span>Mission readiness</span><strong id="hardScore">0%</strong></div>
+                    <button id="hardRedesign" class="secondary_button" type="button">Revise mission design</button>
+                </section>
+                <p class="fine_print">Educational simulation: costs, masses, and engineering thresholds are simplified for gameplay.</p>
+            </aside>
+        </form>
+    </main>
+    <script src="../hard-level.js"></script>
+</body>
+</html>

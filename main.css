@@ -1,0 +1,402 @@
+*{
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-family: 'Arimo';
+    border-radius: 0.4rem;
+    transition: all 400ms ;
+    user-select: none;
+}
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+/* ------------- page 01 ---------------- */
+.h2_p1{
+    margin: 2rem;
+    font-size: 3rem;
+}
+.black_bg{
+    background-color: #000000a9;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+}
+.btn_p1{
+    text-decoration: none;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    cursor: pointer;
+    background: white;
+    color: black;
+}
+
+.btn_p1:hover{
+    background: black;
+    color: white;
+    border-color: #f8f6f6;
+    box-shadow: 0px 0px 10px 1px #f8f6f62e;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+.hard_mode_link{
+    display: inline-block;
+    margin-top: 1.25rem;
+    border: 1px solid #ffbd69;
+    border-radius: 0.5rem;
+    background: #291d19;
+    color: #ffd092;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    font-weight: 700;
+}
+.hard_mode_link:hover{
+    background: #ffbd69;
+    color: #17120d;
+}
+
+/* Mission design game */
+.mission_page{
+    min-height: 100vh;
+    background-color: #071323;
+    background-image: linear-gradient(135deg, #071323ed, #10243be8), url("img/bg2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 2rem 1rem 4rem;
+}
+.mission_shell{
+    width: min(1120px, 100%);
+    margin: 0 auto;
+}
+.mission_header{
+    max-width: 860px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+.back_link{
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: #b8d5ff;
+    text-decoration: none;
+}
+.back_link:hover{
+    color: white;
+}
+.eyebrow{
+    color: #6ed6cf;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16rem;
+}
+.mission_header h1{
+    margin: 0.6rem 0 1rem;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+}
+.mission_brief{
+    color: #d3deec;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+.mission_grid{
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+    align-items: start;
+    gap: 1.25rem;
+}
+.design_panel,
+.status_panel,
+.result_panel{
+    border: 1px solid #ffffff24;
+    border-radius: 1rem;
+    background: #0c1a2beF;
+    box-shadow: 0 16px 40px #00000030;
+    padding: clamp(1.1rem, 3vw, 2rem);
+}
+.section_heading{
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+.step_number{
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 2.5rem;
+    place-items: center;
+    border-radius: 50%;
+    background: #195862;
+    color: #a4fff2;
+    font-weight: 700;
+}
+.section_heading h2,
+.result_panel h2{
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+}
+.section_heading p,
+.field_hint,
+.fine_print{
+    color: #aab9cb;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+.field_label,
+.design_panel legend{
+    display: block;
+    margin: 1.25rem 0 0.55rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+.field_label span,
+.design_panel legend span{
+    color: #aab9cb;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+.design_panel select,
+.budget_input input{
+    width: 100%;
+    border: 1px solid #49617e;
+    border-radius: 0.5rem;
+    background: #10243a;
+    color: white;
+    padding: 0.8rem;
+    font: inherit;
+}
+.design_panel select option{
+    background: #10243a;
+    color: white;
+}
+.field_hint{
+    min-height: 2.7rem;
+    margin-top: 0.45rem;
+}
+.budget_input{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.budget_input span{
+    color: #aab9cb;
+    white-space: nowrap;
+}
+.budget_input input{
+    max-width: 12rem;
+}
+.design_panel fieldset{
+    min-width: 0;
+    margin: 0;
+    border: 0;
+}
+.design_panel legend{
+    width: 100%;
+    padding: 0;
+}
+.choice_cards{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+.choice_card{
+    position: relative;
+    display: flex;
+    min-height: 7rem;
+    flex-direction: column;
+    gap: 0.35rem;
+    border: 1px solid #344d68;
+    border-radius: 0.65rem;
+    background: #10243a;
+    padding: 0.8rem;
+    cursor: pointer;
+}
+.choice_card:has(input:checked){
+    border-color: #6ed6cf;
+    background: #12363e;
+    box-shadow: inset 0 0 0 1px #6ed6cf;
+}
+.choice_card input{
+    accent-color: #6ed6cf;
+}
+.choice_name{
+    font-weight: 700;
+}
+.choice_detail{
+    color: #aab9cb;
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+.option_list{
+    display: grid;
+    gap: 0.55rem;
+}
+.option_row{
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    border: 1px solid #344d68;
+    border-radius: 0.6rem;
+    background: #10243a;
+    padding: 0.75rem;
+    cursor: pointer;
+}
+.option_row:has(input:checked){
+    border-color: #6ed6cf;
+}
+.option_row input{
+    margin-top: 0.2rem;
+    accent-color: #6ed6cf;
+}
+.option_row span{
+    display: grid;
+    gap: 0.25rem;
+}
+.option_row small{
+    color: #aab9cb;
+    line-height: 1.4;
+}
+.power_cards{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.fuel_label{
+    display: flex;
+    justify-content: space-between;
+}
+.fuel_label output{
+    color: #6ed6cf;
+}
+.design_panel input[type="range"]{
+    width: 100%;
+    accent-color: #6ed6cf;
+}
+.range_ends{
+    display: flex;
+    justify-content: space-between;
+    color: #aab9cb;
+    font-size: 0.75rem;
+}
+.mission_sidebar{
+    position: sticky;
+    top: 1rem;
+    display: grid;
+    gap: 1rem;
+}
+.status_panel .section_heading{
+    margin-bottom: 1rem;
+}
+.metrics{
+    display: grid;
+    gap: 0.2rem;
+}
+.metric,
+.score_line{
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-bottom: 1px solid #ffffff1a;
+    padding: 0.7rem 0;
+}
+.metric span,
+.score_line span{
+    color: #aab9cb;
+}
+.metric strong,
+.score_line strong{
+    text-align: right;
+}
+.mission_checks{
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.check_item{
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: #ffbf9d;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+.check_item.pass{
+    color: #8be4c2;
+}
+.ai_suggestion{
+    margin-top: 1rem;
+    border-left: 3px solid #6ed6cf;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background: #ffffff0a;
+    padding: 0.8rem;
+}
+.ai_tag{
+    color: #6ed6cf;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+}
+.ai_suggestion p{
+    margin-top: 0.45rem;
+    color: #d3deec;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.launch_button,
+.secondary_button{
+    width: 100%;
+    margin-top: 1rem;
+    border: 0;
+    border-radius: 0.55rem;
+    background: #65d8cc;
+    color: #071b24;
+    padding: 0.9rem 1rem;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+.launch_button:hover,
+.secondary_button:hover{
+    background: #a1fff1;
+}
+.result_panel{
+    border-color: #65d8cc80;
+}
+.result_panel p:not(.eyebrow){
+    color: #d3deec;
+    line-height: 1.55;
+}
+.result_panel .eyebrow{
+    margin-bottom: 0.6rem;
+}
+.fine_print{
+    padding: 0 0.3rem;
+}
+[hidden]{
+    display: none !important;
+}
+@media (max-width: 800px){
+    .mission_grid{
+        grid-template-columns: 1fr;
+    }
+    .mission_sidebar{
+        position: static;
+    }
+}
+@media (max-width: 540px){
+    .mission_page{
+        padding: 1rem 0.75rem 2rem;
+    }
+    .choice_cards{
+        grid-template-columns: 1fr;
+    }
+    .choice_card{
+        min-height: auto;
+    }
+    .power_cards{
+        grid-template-columns: 1fr;
+    }
+    .mission_brief{
+        font-size: 0.92rem;
+    }
+}
